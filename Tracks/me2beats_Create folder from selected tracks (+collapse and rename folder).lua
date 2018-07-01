@@ -1,6 +1,6 @@
--- @description Create folder from selected tracks (+rename folder)
+-- @description Create folder from selected tracks (+ collapse and rename folder)
 -- @version 1.0
--- @author me2beats
+-- @author me2beats and H0pe86
 -- @changelog
 --  + init
 
@@ -41,6 +41,9 @@ r.SetOnlyTrackSelected(tr)
 r.Main_OnCommand(40914,0) -- Track: Set first selected track as last touched track
 
 r.PreventUIRefresh(-1)
+
+r.NamedCommandLookup('_SWS_COLLAPSE') -- take the ID from the SWS action
+r.Main_OnCommandEx(r.NamedCommandLookup('_SWS_COLLAPSE'), 0, 0) -- execute the action of collapsing track in the folder
 
 r.Main_OnCommand(40913,0) -- Track: Vertical scroll selected tracks into view
 r.Main_OnCommand(40696,0) -- Track: Rename last touched track
